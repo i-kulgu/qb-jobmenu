@@ -1,6 +1,6 @@
 QBCore = exports['qb-core']:GetCoreObject()
 onDuty = false
-
+local PlayerJob = {}
 -- events
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     QBCore.Functions.GetPlayerData(function(PlayerData)
