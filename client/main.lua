@@ -29,7 +29,7 @@ function openJobMenu()
                 local JobMenu = { { icon = "fas fa-list", header = PlayerJob.label.." "..Lang:t("menu.header"), isMenuHeader = true } }
                 JobMenu[#JobMenu + 1] = { icon = "fas fa-circle-xmark", header = "", txt = Lang:t("menu.close"), params = { event = "qb-jobmenu:client:Menu:Close" } }
                 for key,val in pairs(v.menuoptions) do
-                    JobMenu[#JobMenu+1] = { icon = val.icon, header = val.header, params = { event = val.event } }
+                    JobMenu[#JobMenu+1] = { icon = val.icon, header = Lang:t(val.header),txt = Lang:t(val.txt) , params = { event = val.event } }
                 end
             else
                 QBCore.Functions.Notify(Lang:t("error.not_onDuty"), 'error', 3500)
