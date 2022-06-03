@@ -1,16 +1,24 @@
 QBCore = exports['qb-core']:GetCoreObject()
 onDuty = false
+
 -- events
-RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
-AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
-    PlayerJob = QBCore.Functions.GetPlayerData().job
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
+    QBCore.Functions.GetPlayerData(function(PlayerData)
+        PlayerJob = PlayerData.job
+        onDuty = PlayerData.onduty
+     end)
+ end)
+RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
+    PlayerJob = JobInfo
     onDuty = PlayerJob.onduty
 end)
 
-RegisterNetEvent('QBCore:Client:OnJobUpdate')
-AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
-    PlayerJob = JobInfo
-    onDuty = PlayerJob.onduty
+AddEventHandler('onResourceStart', function(resource)
+    if GetCurrentResourceName() ~= resource then return end
+	QBCore.Functions.GetPlayerData(function(PlayerData)
+        PlayerJob = PlayerData.job
+        onDuty = PlayerData.onduty
+    end)
 end)
 
 -- Create menu from config
