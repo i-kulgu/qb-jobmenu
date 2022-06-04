@@ -1,5 +1,6 @@
 QBCore = exports['qb-core']:GetCoreObject()
 onDuty = false
+whitelisted = false
 local PlayerJob = {}
 -- events
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
@@ -17,7 +18,7 @@ AddEventHandler('onResourceStart', function(resource)
     if GetCurrentResourceName() ~= resource then return end
 	QBCore.Functions.GetPlayerData(function(PlayerData)
         PlayerJob = PlayerData.job
-        onDuty = PlayerData.onduty
+        onDuty = PlayerJob.onduty
     end)
 end)
 
@@ -25,18 +26,25 @@ end)
 function openJobMenu()
     for k,v in pairs(Config.Jobs) do
         if PlayerJob.name == k then
-            if onDuty then
+            print("jobname check")
+            print(onDuty)
+            if onDuty == true then
+                print("onduty check")
                 local JobMenu = { { icon = "fas fa-list", header = PlayerJob.label.." "..Lang:t("menu.header"), isMenuHeader = true } }
                 JobMenu[#JobMenu + 1] = { icon = "fas fa-circle-xmark", header = "", txt = Lang:t("menu.close"), params = { event = "qb-jobmenu:client:Menu:Close" } }
                 for key,val in pairs(v.menuoptions) do
                     JobMenu[#JobMenu+1] = { icon = val.icon, header = Lang:t(val.header),txt = Lang:t(val.txt) , params = { event = val.event } }
                 end
-            else
-                QBCore.Functions.Notify(Lang:t("error.not_onDuty"), 'error', 3500)
+                exports['qb-menu']:openMenu(JobMenu)
             end
-        else
-            QBCore.Functions.Notify(Lang:t("error.not_whitelistedJob"), 'error', 3500)
+            whitelisted = true
         end
+    end
+    if not whitelisted then
+        QBCore.Functions.Notify(Lang:t("error.not_whitelistedJob"), 'error', 3500)
+    end
+    if onDuty == false then
+        QBCore.Functions.Notify(Lang:t("error.not_onDuty"), 'error', 3500)
     end
 end
 
