@@ -25,10 +25,25 @@ local Translations = {
         t_statuscheck = "Control the player health",
         h_revivep = "Revive Player",
         t_revivep = "Revive the dead player",
+        h_treatwounds = "Heal Wounds",
+        t_treatwounds = "",
+        h_emergencybutton2 = "Emergency Button",
+        t_emergencybutton2 = "",
+        h_stretcheroptions = "Stretcher",
+        t_stretcheroptions = "",
 
         -- Mechanicjob
         h_towvehicle = "Tow vehicle",
         t_towvehicle = "Tow the vehicle in front of you",
+
+        -- Taxijob
+        h_togglemeter = "Show/Hide Meter",
+        t_togglemeter = "",
+        h_togglemouse = "Start/Stop Meter",
+        t_togglemouse = "",
+        h_npc_mission = "NPC Mission",
+        t_npc_mission = "",
+
     },
     submenu = {
         header = "Submenu",
@@ -44,6 +59,7 @@ local Translations = {
         t_searchplayer = "",
         h_jailplayer = "Jail Player",
         t_jailplayer = "",
+        -- Police objects
         h_spawnpion = "Spawn Cone",
         t_spawnpion = "",
         h_spawnhek = "Spawn Gate",
@@ -58,6 +74,11 @@ local Translations = {
         t_spikestrip = "",
         h_deleteobject = "Remove Object",
         t_deleteobject = "",
+        --Ambulance stretcher
+        h_spawnstretcher = "Spawn Stretcher",
+        t_spawnstretcher = "",
+        h_despawnstretcher = "Remove Stretcher",
+        t_despawnstretcher = "",
     }
 }
 

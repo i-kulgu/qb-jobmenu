@@ -26,13 +26,27 @@ Config = {
         },
         ["ambulance"] = {
             menuoptions = {
-                {icon = "fas fa-heart-pulse",header = "menu.h_statuscheck", txt = "menu.t_statuscheck", event = "hospital:client:CheckStatus"},
-                {icon = "fas fa-user-doctor",header = "menu.h_revivep", txt = "menu.t_revivep", event = "hospital:client:RevivePlayer"},
+                {icon = "fas fa-heart-pulse",header = "menu.h_statuscheck", txt = "menu.t_statuscheck", event = "hospital:client:CheckStatus",submenu = "", subheader = ""},
+                {icon = "fas fa-user-doctor",header = "menu.h_revivep", txt = "menu.t_revivep", event = "hospital:client:RevivePlayer",submenu = "", subheader = ""},
+                {icon = "fas fa-bandage",header = "menu.h_treatwounds", txt = "menu.t_treatwounds", event = "hospital:client:TreatWounds",submenu = "", subheader = ""},
+                {icon = "fas fa-bell",header = "menu.h_emergencybutton2", txt = "menu.t_emergencybutton2", event = "police:client:SendPoliceEmergencyAlert",submenu = "", subheader = ""},
+                {icon = "fas fa-user-group",header = "submenu.h_escort", txt = "submenu.t_escort", event = "police:client:EscortPlayer",submenu = "", subheader = ""},
+                -- Ambulance stretcher options
+                {icon = "fas fa-bed-pulse",header = "menu.h_stretcheroptions", txt = "menu.t_stretcheroptions", event = "qb-jobmenu:client:opensubmenu",submenu = "", subheader = "stretcheroptions"},
+                {icon = "fas fa-plus",header = "submenu.h_spawnstretcher", txt = "submenu.t_spawnstretcher", event = "qb-radialmenu:client:TakeStretcher",submenu = "stretcheroptions", subheader = ""},
+                {icon = "fas fa-minus",header = "submenu.h_despawnstretcher", txt = "submenu.t_despawnstretcher", event = "qb-radialmenu:client:RemoveStretcher",submenu = "stretcheroptions", subheader = ""},
             }
         },
         ["mechanic"] = {
             menuoptions = {
-                {icon = "fas fa-truck-pickup",header = "menu.h_towvehicle", txt = "menu.t_towvehicle", event = "qb-tow:client:TowVehicle"},
+                {icon = "fas fa-truck-pickup",header = "menu.h_towvehicle", txt = "menu.t_towvehicle", event = "qb-tow:client:TowVehicle",submenu = "", subheader = ""},
+            }
+        },
+        ["taxi"] = {
+            menuoptions = {
+                {icon = "fas fa-eye-slash",header = "menu.h_togglemeter", txt = "menu.t_togglemeter", event = "qb-taxi:client:toggleMeter",submenu = "", subheader = ""},
+                {icon = "fas fa-hourglass-start",header = "menu.h_togglemouse", txt = "menu.t_togglemouse", event = "qb-taxi:client:enableMeter",submenu = "", subheader = ""},
+                {icon = "fas fa-taxi",header = "menu.h_npc_mission", txt = "menu.t_npc_mission", event = "qb-taxi:client:DoTaxiNpc",submenu = "", subheader = ""},
             }
         },
     }
