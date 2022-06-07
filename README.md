@@ -1,5 +1,7 @@
 # qb-jobmenu
 
+( For any help you can reach us at Discord: https://discord.com/invite/pSJPPctrNx )
+
 A simple job menu that's easy configurable for any job.
 
 Default key to open the menu is F6.
