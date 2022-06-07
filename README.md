@@ -1,6 +1,6 @@
 # qb-jobmenu
 
-( For any help you can reach us at Discord: https://discord.com/invite/pSJPPctrNx )
+( For any help you can reach us at Discord: [Hi-Dev](https://discord.com/invite/pSJPPctrNx) )
 
 A simple job menu that's easy configurable for any job.
 
