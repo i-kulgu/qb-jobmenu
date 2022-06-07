@@ -2,15 +2,26 @@ Config = {
     Jobs = {
         ["police"] = {
             menuoptions = {
-                {icon = "fas fa-bell",header = "menu.h_emergency", txt = "menu.t_emergency", event = "police:client:SendPoliceEmergencyAlert"},
-                {icon = "fas fa-circle-info",header = "menu.h_checkvehstatus", txt = "menu.t_checkvehstatus", event = "qb-tunerchip:client:TuneStatus"},
-                {icon = "fas fa-key",header = "menu.h_resethouse", txt = "menu.t_resethouse", event = "qb-houses:client:ResetHouse"},
-                {icon = "fas fa-id-card",header = "menu.h_takedriverlicense", txt = "menu.t_takedriverlicense", event = "police:client:SeizeDriverLicense"},
-                {icon = "fas fa-heart-pulse",header = "menu.h_statuscheck", txt = "menu.t_statuscheck", event = "hospital:client:CheckStatus"},
-                {icon = "fas fa-question",header = "menu.h_checkstatus", txt = "menu.t_checkstatus", event = "police:client:CheckStatus"},
-                {icon = "fas fa-user-group",header = "menu.h_escort", txt = "menu.t_escort", event = "police:client:EscortPlayer"},
-                {icon = "fas fa-magnifying-glass",header = "menu.h_searchplayer", txt = "menu.t_searchplayer", event = "police:client:SearchPlayer"},
-                {icon = "fas fa-user-lock",header = "menu.h_jailplayer", txt = "menu.t_jailplayer", event = "police:client:JailPlayer"},
+                {icon = "fas fa-bell",header = "menu.h_emergency", txt = "menu.t_emergency", event = "police:client:SendPoliceEmergencyAlert", submenu = "", subheader = ""},
+                {icon = "fas fa-circle-info",header = "menu.h_checkvehstatus", txt = "menu.t_checkvehstatus", event = "qb-tunerchip:client:TuneStatus", submenu = "", subheader = ""},
+                {icon = "fas fa-key",header = "menu.h_resethouse", txt = "menu.t_resethouse", event = "qb-houses:client:ResetHouse", submenu = "", subheader = ""},
+                {icon = "fas fa-id-card",header = "menu.h_takedriverlicense", txt = "menu.t_takedriverlicense", event = "police:client:SeizeDriverLicense", submenu = "", subheader = ""},
+                -- Police interactions submenu
+                {icon = "fas fa-list-check",header = "menu.h_policeinteractions", txt = "menu.t_policeinteractions", event = "qb-jobmenu:client:opensubmenu", submenu = "", subheader = "policeinteractions"},
+                {icon = "fas fa-heart-pulse",header = "submenu.h_statuscheck", txt = "submenu.t_statuscheck", event = "hospital:client:CheckStatus", submenu = "policeinteractions", subheader = ""},
+                {icon = "fas fa-question",header = "submenu.h_checkstatus", txt = "submenu.t_checkstatus", event = "police:client:CheckStatus", submenu = "policeinteractions", subheader = ""},
+                {icon = "fas fa-user-group",header = "submenu.h_escort", txt = "submenu.t_escort", event = "police:client:EscortPlayer", submenu = "policeinteractions", subheader = ""},
+                {icon = "fas fa-magnifying-glass",header = "submenu.h_searchplayer", txt = "submenu.t_searchplayer", event = "police:client:SearchPlayer", submenu = "policeinteractions", subheader = ""},
+                {icon = "fas fa-user-lock",header = "submenu.h_jailplayer", txt = "submenu.t_jailplayer", event = "police:client:JailPlayer", submenu = "policeinteractions", subheader = ""},
+                -- Police objects submenu
+                {icon = "fas fa-road",header = "menu.h_policeobjects", txt = "menu.t_policeobjects", event = "qb-jobmenu:client:opensubmenu", submenu = "", subheader = "policeobjects"},
+                {icon = "fas fa-triangle-exclamation",header = "submenu.h_spawnpion", txt = "submenu.t_spawnpion", event = "police:client:spawnCone", submenu = "policeobjects", subheader = ""},
+                {icon = "fas fa-torii-gate",header = "submenu.h_spawnhek", txt = "submenu.t_spawnhek", event = "police:client:spawnBarrier", submenu = "policeobjects", subheader = ""},
+                {icon = "fas fa-sign",header = "submenu.h_spawnschotten", txt = "submenu.t_spawnschotten", event = "police:client:spawnRoadSign", submenu = "policeobjects", subheader = ""},
+                {icon = "fas fa-campground",header = "submenu.h_spawntent", txt = "submenu.t_spawntent", event = "police:client:spawnTent", submenu = "policeobjects", subheader = ""},
+                {icon = "fas fa-lightbulb",header = "submenu.h_spawnverlichting", txt = "submenu.t_spawnverlichting", event = "police:client:spawnLight", submenu = "policeobjects", subheader = ""},
+                {icon = "fas fa-caret-up",header = "submenu.h_spikestrip", txt = "submenu.t_spikestrip", event = "police:client:SpawnSpikeStrip", submenu = "policeobjects", subheader = ""},
+                {icon = "fas fa-trash",header = "submenu.h_deleteobject", txt = "submenu.t_deleteobject", event = "police:client:deleteObject", submenu = "policeobjects", subheader = ""},
             }
         },
         ["ambulance"] = {

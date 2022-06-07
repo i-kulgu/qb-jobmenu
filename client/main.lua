@@ -26,14 +26,13 @@ end)
 function openJobMenu()
     for k,v in pairs(Config.Jobs) do
         if PlayerJob.name == k then
-            print("jobname check")
-            print(onDuty)
             if onDuty == true then
-                print("onduty check")
                 local JobMenu = { { icon = "fas fa-list", header = PlayerJob.label.." "..Lang:t("menu.header"), isMenuHeader = true } }
                 JobMenu[#JobMenu + 1] = { icon = "fas fa-circle-xmark", header = "", txt = Lang:t("menu.close"), params = { event = "qb-jobmenu:client:Menu:Close" } }
                 for key,val in pairs(v.menuoptions) do
-                    JobMenu[#JobMenu+1] = { icon = val.icon, header = Lang:t(val.header),txt = Lang:t(val.txt) , params = { event = val.event } }
+                    if val.submenu == "" then
+                        JobMenu[#JobMenu+1] = { icon = val.icon, header = Lang:t(val.header),txt = Lang:t(val.txt) , params = { event = val.event, args = val.subheader } }
+                    end
                 end
                 exports['qb-menu']:openMenu(JobMenu)
             end
@@ -48,7 +47,29 @@ function openJobMenu()
     end
 end
 
+RegisterNetEvent("qb-jobmenu:client:opensubmenu", function(subname)
+    for k,v in pairs(Config.Jobs) do
+        if PlayerJob.name == k then
+            if onDuty == true then
+                local SubJobMenu = { { icon = "fas fa-list", header = PlayerJob.label.." "..Lang:t("submenu.header"), isMenuHeader = true } }
+                SubJobMenu[#SubJobMenu + 1] = { icon = "fas fa-circle-xmark", header = "", txt = Lang:t("menu.close"), params = { event = "qb-jobmenu:client:Menu:Close" } }
+                SubJobMenu[#SubJobMenu + 1] = { icon = "fas fa-backward-step", header = "", txt = Lang:t("submenu.back"), params = { event = "qb-jobmenu:client:backtomenu" } }
+                for key,val in pairs(v.menuoptions) do
+                    if val.submenu == subname and val.subheader == "" then
+                        SubJobMenu[#SubJobMenu+1] = { icon = val.icon, header = Lang:t(val.header),txt = Lang:t(val.txt) , params = { event = val.event } }
+                    end
+                end
+                exports['qb-menu']:openMenu(SubJobMenu)
+            end
+        end
+    end
+end)
+
 RegisterCommand("openJobMenu", function()
+    openJobMenu()
+end)
+
+RegisterNetEvent("qb-jobmenu:client:backtomenu",function()
     openJobMenu()
 end)
 
