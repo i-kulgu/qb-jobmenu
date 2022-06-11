@@ -5,9 +5,8 @@
 A simple job menu that's easy configurable for any job.
 
 Default key to open the menu is F6.
-https://media.discordapp.net/attachments/982271042699546624/983878867989168128/qb-jobmenu.png?width=1083&height=670
 
-![image](https://user-images.githubusercontent.com/29943243/171968876-87782213-fb02-4410-a55a-2bc9706acda5.png)
+![image](https://media.discordapp.net/attachments/982271042699546624/983878867989168128/qb-jobmenu.png)
 
 # Adding jobs
 
