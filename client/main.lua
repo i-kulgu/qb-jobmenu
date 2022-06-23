@@ -6,7 +6,7 @@ local PlayerJob = {}
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     QBCore.Functions.GetPlayerData(function(PlayerData)
         PlayerJob = PlayerData.job
-        onDuty = PlayerData.onduty
+        onDuty = PlayerData.job.onduty
      end)
  end)
 RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
