@@ -30,8 +30,10 @@ function openJobMenu()
                 local JobMenu = { { icon = "fas fa-list", header = PlayerJob.label.." "..Lang:t("menu.header"), isMenuHeader = true } }
                 JobMenu[#JobMenu + 1] = { icon = "fas fa-circle-xmark", header = "", txt = Lang:t("menu.close"), params = { event = "qb-jobmenu:client:Menu:Close" } }
                 for key,val in pairs(v.menuoptions) do
-                    if val.submenu == "" then
-                        JobMenu[#JobMenu+1] = { icon = val.icon, header = Lang:t(val.header),txt = Lang:t(val.txt) , params = { event = val.event, args = val.subheader } }
+                    if PlayerJob.grade.level >= val.rank then
+                        if val.submenu == "" then
+                            JobMenu[#JobMenu+1] = { icon = val.icon, header = Lang:t(val.header),txt = Lang:t(val.txt) , params = { event = val.event, args = val.subheader } }
+                        end
                     end
                 end
                 exports['qb-menu']:openMenu(JobMenu)
