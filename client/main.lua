@@ -9,9 +9,13 @@ RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
         onDuty = PlayerData.job.onduty
      end)
  end)
+
 RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
     PlayerJob = JobInfo
-    onDuty = PlayerJob.onduty
+end)
+
+RegisterNetEvent('QBCore:Client:SetDuty', function(duty)
+    onDuty = duty
 end)
 
 AddEventHandler('onResourceStart', function(resource)
