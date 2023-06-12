@@ -1,5 +1,7 @@
 # qb-jobmenu
 
+If you like my work and want to support me : [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F2F3EU9ME)
+
 ( For any help you can reach us at Discord: [Hi-Dev](https://discord.com/invite/pSJPPctrNx) )
 
 A simple job menu that's easy configurable for any job.
